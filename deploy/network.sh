@@ -7,8 +7,8 @@ function destroy_nets() {
 }
 
 function setup_om_bridge() {
-
     ips=$(ip addr show $OM_NIC | grep 'inet ' | awk -F' ' '{print $2}')
+    routes=$(ip route show | grep $OM_NIC)
 
     ip link set br_install down
     ip addr flush $OM_NIC
@@ -22,12 +22,9 @@ function setup_om_bridge() {
         ip addr add $ip dev br_install
     done
 
-    mask=`echo $INSTALL_MASK | awk -F'.' '{print ($1*(2^24)+$2*(2^16)+$3*(2^8)+$4)}'`
-    mask_len=`echo "obase=2;${mask}"|bc|awk -F'0' '{print length($1)}'`
-    ip addr add $INSTALL_GW/$mask_len dev br_install
-    if [[ -n "$OM_GW" ]]; then
-        route add default gw $OM_GW
-    fi
+    echo "$routes" | while read line; do
+        echo $line | sed "s/$OM_NIC/br_install/g" | xargs ip route add
+    done
 }
 
 function setup_om_nat() {
