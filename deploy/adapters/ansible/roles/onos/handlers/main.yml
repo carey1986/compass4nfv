@@ -1,0 +1,4 @@
+---
+- name: restart onos service
+  shell:  /opt/onos-1.2.1/apache-karaf-3.0.3/bin/stop;/opt/onos-1.2.1/apache-karaf-3.0.3/bin/start
+

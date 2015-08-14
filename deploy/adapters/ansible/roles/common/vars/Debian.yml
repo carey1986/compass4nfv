@@ -1,0 +1,6 @@
+---
+packages:
+  - ubuntu-cloud-keyring
+  - python-dev
+
+ntp_service: ntp

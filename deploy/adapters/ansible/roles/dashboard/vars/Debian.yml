@@ -1,0 +1,8 @@
+---
+packages:
+  - apache2
+  - libapache2-mod-wsgi
+
+services:
+  - apache2
+  - memcached

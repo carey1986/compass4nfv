@@ -1,0 +1,11 @@
+---
+
+packages:
+  - glance
+
+nfs_packages:
+  - nfs-common
+
+services:
+  - glance-registry
+  - glance-api

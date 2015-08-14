@@ -1,0 +1,4 @@
+onos_pkg_url: http://downloads.onosproject.org/release/onos-1.2.1.tar.gz
+onos_pkg_name: onos-1.2.1.tar.gz
+onos_home: /opt/onos-1.2.1/
+jdk8_pkg_name: jdk-8u51-linux-x64.tar.gz
