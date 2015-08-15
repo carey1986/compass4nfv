@@ -11,15 +11,15 @@
 
 - name: check if physical device exists
   stat: path={{ physical_device }}
-  register: st
+  register: status
 
-- name: repace physical_device if st is false
+- name: replace physical_device if st is false
   local_action: copy src=loop.yml dest=/tmp/loop.yml
-  when: st.stat.exists == False
+  when: status.stat.exists == False
 
 - name: load loop.yml
   include_vars: /tmp/loop.yml
-  when: st.stat.exists == False
+  when: status.stat.exists == False
 
 - name: check if cinder-volumes is mounted
   shell: ls /mnt

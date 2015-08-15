@@ -109,9 +109,9 @@ CACHES = {
 
 # Enable the Ubuntu theme if it is present.
 try:
-	from ubuntu_theme import *
+    from ubuntu_theme import *
 except ImportError:
-	pass
+    pass
 
 # Default Ubuntu apache configuration uses /horizon as the application root.
 # Configure auth redirects here accordingly.

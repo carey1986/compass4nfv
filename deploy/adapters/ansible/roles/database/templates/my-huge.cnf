@@ -17,31 +17,31 @@
 
 # The following options will be passed to all MySQL clients
 [client]
-#password	= your_password
-port		= 3306
-socket		= /var/lib/mysql/mysql.sock
+#password = your_password
+port      = 3306
+socket    = /var/lib/mysql/mysql.sock
 
 # Here follows entries for some specific programs
 
 # The MySQL server
 [mysqld]
-port		= 3306
-socket		= /var/lib/mysql/mysql.sock
+port      = 3306
+socket    = /var/lib/mysql/mysql.sock
 skip-external-locking
-key_buffer_size = 384M
+key_buffer_size    = 384M
 max_allowed_packet = 1M
-table_open_cache = 512
-sort_buffer_size = 2M
-read_buffer_size = 2M
-read_rnd_buffer_size = 8M
+table_open_cache   = 512
+sort_buffer_size   = 2M
+read_buffer_size   = 2M
+read_rnd_buffer_size    = 8M
 myisam_sort_buffer_size = 64M
-thread_cache_size = 8
-query_cache_size = 32M
+thread_cache_size  = 8
+query_cache_size   = 32M
 # Try number of CPU's*2 for thread_concurrency
 thread_concurrency = 8
 
 # Point the following paths to a dedicated disk
-#tmpdir		= /tmp/
+#tmpdir        = /tmp/
 
 # Don't listen on a TCP/IP port at all. This can be a security enhancement,
 # if all processes that need to connect to mysqld run on the same host.
@@ -58,7 +58,7 @@ log-bin=mysql-bin
 # required unique id between 1 and 2^32 - 1
 # defaults to 1 if master-host is not set
 # but will not function as a master if omitted
-server-id	= 1
+server-id = 1
 
 # Replication Slave (comment out master section to use this)
 #
@@ -142,10 +142,10 @@ no-auto-rehash
 #safe-updates
 
 [myisamchk]
-key_buffer_size = 256M
+key_buffer_size  = 256M
 sort_buffer_size = 256M
-read_buffer = 2M
-write_buffer = 2M
+read_buffer      = 2M
+write_buffer     = 2M
 
 [mysqlhotcopy]
 interactive-timeout

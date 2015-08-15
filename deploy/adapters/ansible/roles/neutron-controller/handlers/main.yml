@@ -1,4 +1,4 @@
 ---
-- name: restart neutron controll services
+- name: restart neutron control services
   service: name={{ item }}  state=restarted enabled=yes
   with_items: services | union(services_noarch)

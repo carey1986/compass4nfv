@@ -9,7 +9,7 @@
   retries: 5
   delay: 3
   notify:
-    - restart cinder controll serveice
+    - restart cinder control serveice
 
 - meta: flush_handlers
 

@@ -19,7 +19,7 @@
   notify:
     - restart nova-compute services
 
-- name: generate neutron controll service list
+- name: generate neutron control service list
   shell: echo {{ item }} >> /opt/service
   with_items: services | union(services_noarch)
 

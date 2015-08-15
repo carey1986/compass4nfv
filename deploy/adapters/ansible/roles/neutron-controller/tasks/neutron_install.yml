@@ -5,7 +5,7 @@
   action: "{{ ansible_pkg_mgr }} name={{ item }} state=present"
   with_items: packages | union(packages_noarch)
 
-- name: generate neutron controll service list
+- name: generate neutron control service list
   shell: echo {{ item }} >> /opt/service
   with_items: services | union(services_noarch)
 

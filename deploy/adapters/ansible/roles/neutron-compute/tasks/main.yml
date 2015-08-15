@@ -23,7 +23,7 @@
     systemctl daemon-reload
   when: ansible_os_family == 'RedHat'
 
-- name: generate neutron computer service list
+- name: generate neutron compute service list
   shell: echo {{ item }} >> /opt/service
   with_items: services | union(services_noarch)
 
@@ -39,7 +39,7 @@
   template: src=templates/neutron-network.conf
             dest=/etc/neutron/neutron.conf backup=yes
   notify:
-    - restart neutron computer service
+    - restart neutron compute service
     - restart nova-compute services
 
 - meta: flush_handlers

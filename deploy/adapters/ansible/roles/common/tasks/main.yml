@@ -21,7 +21,7 @@
   shell: awk -F'=' '/compass_server/ {print $2}' /etc/compass.conf
   register: ip
 
-- name: update compass-core name and ip to  hosts files
+- name: update compass-core name and ip to hosts files
   shell: |
     echo "# compass" >> /etc/hosts
     echo {{ ip.stdout_lines[0] }} {{ name.stdout_lines[0] }} >> /etc/hosts
@@ -36,7 +36,7 @@
 - name: update pip.conf
   template: src=pip.conf dest=~/.pip/pip.conf
 
-- name: sync betweent sys clock and hard clock
+- name: sync between sys clock and hard clock
   command: su -s /bin/sh -c "service {{ ntp_service }} stop; ntpd -gq; hwclock --systohc"
   ignore_errors: True
 
