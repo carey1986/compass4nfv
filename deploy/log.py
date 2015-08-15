@@ -10,7 +10,11 @@ def getLogger(name):
 
     # create file handler which logs even debug messages
     log_file = "%s.log" % name
-    os.remove(log_file)
+    try:
+        os.remove(log_file)
+    except:
+        pass
+
     fh = logging.FileHandler(log_file)
     fh.setLevel(logging.DEBUG)
 
